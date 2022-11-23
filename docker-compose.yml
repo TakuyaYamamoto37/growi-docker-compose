@@ -10,11 +10,11 @@ services:
     depends_on:
       - elasticsearch
     environment:
-      - MONGO_URI=mongodb://192.168.3.27:27017/growi-1
+      - MONGO_URI=mongodb://$IP_ADDRESS:27017/growi-1
       - ELASTICSEARCH_URI=http://elasticsearch:9200/growi-1
       - PASSWORD_SEED=changeme
     entrypoint: "dockerize
-              -wait tcp://192.168.3.27:27017
+              -wait tcp://$IP_ADDRESS:27017
               -wait tcp://elasticsearch:9200
               -timeout 60s
               /docker-entrypoint.sh"
@@ -32,11 +32,11 @@ services:
     depends_on:
       - elasticsearch
     environment:
-      - MONGO_URI=mongodb://192.168.3.27:27017/growi-2
+      - MONGO_URI=mongodb://$IP_ADDRESS:27017:27017/growi-2
       - ELASTICSEARCH_URI=http://elasticsearch:9200/growi-2
       - PASSWORD_SEED=changeme
     entrypoint: "dockerize
-              -wait tcp://192.168.3.27:27017
+              -wait tcp://$IP_ADDRESS:27017:27017
               -wait tcp://elasticsearch:9200
               -timeout 60s
               /docker-entrypoint.sh"
@@ -54,11 +54,11 @@ services:
     depends_on:
       - elasticsearch
     environment:
-      - MONGO_URI=mongodb://192.168.3.27:27017/growi-3
+      - MONGO_URI=mongodb://$IP_ADDRESS:27017:27017/growi-3
       - ELASTICSEARCH_URI=http://elasticsearch:9200/growi-3
       - PASSWORD_SEED=changeme
     entrypoint: "dockerize
-              -wait tcp://192.168.3.27:27017
+              -wait tcp://$IP_ADDRESS:27017:27017
               -wait tcp://elasticsearch:9200
               -timeout 60s
               /docker-entrypoint.sh"
