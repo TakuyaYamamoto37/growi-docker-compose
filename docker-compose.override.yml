@@ -19,9 +19,6 @@ services:
       dockerfile: ./Dockerfile
       args:
         - version=5.1.8
-  mongo:
-    ports:
-      - 27017:27017
 
 networks:
   default:
