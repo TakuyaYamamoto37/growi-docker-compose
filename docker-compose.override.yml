@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app-1:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - version=5.1.8 # ここを変えるとバージョンを変えられます
+  app-2:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - version=5.1.8
+  app-3:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - version=5.1.8
+  mongo:
+    ports:
+      - 27017:27017
+
+networks:
+  default:
+    name: grw_multiapp
