@@ -10,7 +10,7 @@ services:
     depends_on:
       - elasticsearch
     environment:
-      - MONGO_URI=mongodb://$IP_ADDRESS:27017/growi-1
+      - MONGO_URI=mongodb://$MONGO_USERNAME:$MONGO_PASSWORD@$IP_ADDRESS:27017/growi-1?authSource=admin
       - ELASTICSEARCH_URI=http://elasticsearch:9200/growi-1
       - PASSWORD_SEED=changeme
     entrypoint: "dockerize
@@ -32,7 +32,7 @@ services:
     depends_on:
       - elasticsearch
     environment:
-      - MONGO_URI=mongodb://$IP_ADDRESS:27017/growi-2
+      - MONGO_URI=mongodb://$MONGO_USERNAME:$MONGO_PASSWORD@$IP_ADDRESS:27017/growi-2?authSource=admin
       - ELASTICSEARCH_URI=http://elasticsearch:9200/growi-2
       - PASSWORD_SEED=changeme
     entrypoint: "dockerize
@@ -54,7 +54,7 @@ services:
     depends_on:
       - elasticsearch
     environment:
-      - MONGO_URI=mongodb://$IP_ADDRESS:27017/growi-3
+      - MONGO_URI=mongodb://$MONGO_USERNAME:$MONGO_PASSWORD@$IP_ADDRESS:27017/growi-3?authSource=admin
       - ELASTICSEARCH_URI=http://elasticsearch:9200/growi-3
       - PASSWORD_SEED=changeme
     entrypoint: "dockerize
